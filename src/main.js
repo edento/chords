@@ -1,7 +1,18 @@
     (function() {
 
+        var url = document.URL;
+        var selector;
+
+        if (url.indexOf('tabs.ultimate-guitar') != -1) {
+            selector = '.js-tab-content >span';
+        } else if (url.indexOf('tab4u.com/tabs') != -1) {
+            selector = '.chords span';
+        } else {
+            return;
+        }
+
         var replaced = 0;
-        var spans = document.querySelectorAll('.chords span');
+        var spans = document.querySelectorAll(selector);
         var CHORDS = {
             'Ab': 'G#',
             'Bb': 'A#',
